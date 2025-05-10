@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  padding: 7%;
+  background: linear-gradient(to top right, #ffe6f0, #ffe0e9);
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.flores, .corazones {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.flor, .corazon {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: pink;
+  border-radius: 50%;
+  animation: flotar 12s linear infinite;
+  opacity: 0.7;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 2.5em;
+  color: #d63384;
+  margin: 15px 0;
+  animation: fadeIn 2s ease;
+  z-index: 2;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.contenedor {
+  position: relative;
+  margin: 0 auto;
+  width: 200px;
+  height: 250px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.sobre {
+  position: relative;
+  width: 150%;
+  height: 200px;
+  transform: translate(-15%);
+  background: #ffb6c1;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.triangulo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f08080;
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+  z-index: 2;
+  transition: transform 0.8s ease;
+  transform-origin: top;
+}
+
+.carta {
+  position: absolute;
+  top: 40px;
+  left: -15px;
+  width: 250px;
+  height: 300px;
+  background: linear-gradient(145deg, #fff0f5, #ffe4e9);
+  border-radius: 20px;
+  border: 3px solid #f48fb1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 35px 25px;
+  box-sizing: border-box;
+  transform: translateY(-50%, -160px);
+  opacity: 0;
+  transition: all 0.8s ease;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  backdrop-filter: blur(3px);
+}
+
+.mensaje {
+  font-family: 'Georgia', serif;
+  font-size: 1em;
+  line-height: 1.02;
+  color: #c2185b;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: inset 0 0 5px rgba(255, 182, 193, 0.2);
+  animation: aparecer 2s ease forwards;
+  opacity: 0;
+  z-index: 1;
+  position: relative;
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.abierto .carta {
+  transform: translateY(-120px);
+  opacity: 1;
+}
+
+.abierto .triangulo {
+  transform: rotateX(180deg);
+}
+
+.pie {
+  text-align: center;
+  font-size: 0.9em;
+  color: #888;
+  margin-top: 30px;
+}
+
+.petalos-internos {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.petalo-interno {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, #fbb1bd, #e35c78);
+  border-radius: 50% 50% 50% 50%;
+  transform: rotate(45deg);
+  opacity: 0.8;
+  animation: caerPetaloInterno 6s linear infinite;
+}
+
+@keyframes caerPetaloInterno {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(400px) rotate(360deg);
+    opacity: 0;
+  }
+}
